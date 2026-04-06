@@ -2,22 +2,44 @@ import java.util.Scanner;
 
 public class SimpleCalculator {
     public static void main(String[] args) {
-        System.out.println("Enter '+' to perform addition or '-' to perform subtraction");
-        char operator;
+        int choice,num1,num2;
+        System.out.println("Enter 1 to perform addition");
+        System.out.println("Enter 2 to perform subtraction");
+        System.out.println("Enter 3 to perform multiplication");
+        System.out.println("Enter 4 to perform division");
+        System.out.println("Enter 5 to perform modulus operation");
         Scanner scanner=new Scanner(System.in);
-        operator=scanner.next().charAt(0);
+        choice=scanner.nextInt();
         System.out.println("Enter num1:");
-        double num1,num2;
-        num1=scanner.nextDouble();
-        num2=scanner.nextDouble();
+        num1=scanner.nextInt();
+        System.out.println("Enter num2:");
+        num2=scanner.nextInt();
 
-        if(operator=='+'){
-            double sum=num2+num2;
-            System.out.println("Sum of two numbers is "+sum);
+        if(choice>5 || choice<1){
+            System.out.println("Invalid operation chosen!");
         }
-        else if(operator=='-'){
-            double difference=num1-num2;
-            System.out.println("Difference of two numbers is "+difference);
+        else {
+            if (choice == 1) {
+                int sum = num1 + num2;
+                System.out.println("Sum of two numbers is " + sum);
+            } else if (choice == 2) {
+                int difference = num1 - num2;
+                System.out.println("Difference between two numbers is " + difference);
+            } else if (choice == 3) {
+                int product = num1 * num2;
+                System.out.println("Product of two numbers is " + product);
+            } else if(choice == 4){
+                if (num2 != 0) {
+                    int quotient = num1 / num2;
+                }
+                else{
+                    System.out.println("Division cannot be performed as 0 is in the denominator");
+                }
+            }
+            else{
+                int quotient=num1%num2;
+                System.out.println("Quotient is "+quotient);
+            }
         }
         scanner.close();
     }
